@@ -14,6 +14,8 @@ public class Control extends Thread {
     private final static int MAXVALUE = 30000000;
     private final static int TMILISECONDS = 5000;
 
+    private int primesFounded = 0;
+
     private final int NDATA = MAXVALUE / NTHREADS;
 
     private PrimeFinderThread pft[];
@@ -24,7 +26,7 @@ public class Control extends Thread {
 
         int i;
         for(i = 0;i < NTHREADS - 1; i++) {
-            PrimeFinderThread elem = new PrimeFinderThread(i*NDATA, (i+1)*NDATA);
+            PrimeFinderThread elem = new PrimeFinderThread(i*NDATA, (i+1)*NDATA,this);
             pft[i] = elem;
         }
         pft[i] = new PrimeFinderThread(i*NDATA, MAXVALUE + 1);
@@ -34,11 +36,25 @@ public class Control extends Thread {
         return new Control();
     }
 
+    public synchronized void addToPrimeCounter(){
+        primesFounded++;
+    }
+
     @Override
     public void run() {
         for(int i = 0;i < NTHREADS;i++ ) {
             pft[i].start();
         }
     }
-    
+
+    public synchronized void beginCheckingRounds() throws InterruptedException {
+        for(int i = 0;i < NTHREADS;i++ ) {
+            pft[i].wait();
+        }
+        notifyAll();
+    }
+
+    public int getPrimesFounded() {
+        return primesFounded;
+    }
 }
