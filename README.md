@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐍 Snake Race — Segundo Laboratorio de Hilos
+# 🔍 Prime Finder — Segundo Laboratorio de Hilos
 
 ### 🏫 Escuela Colombiana de Ingeniería Julio Garavito  
 ### 📚 Arquitecturas de Software (ARSW)  
@@ -19,10 +19,8 @@
 
 ## 📂 Estructura del Repositorio
 ```
-📦 Snake Race Lab
-├── 📁 src/              # Código fuente del laboratorio
-├── 📁 docs/             # Documentación y respuestas del laboratorio
-└── 📁 primeFinder/      # Parte 1 - Ejercicio de calentamiento
+📦 Prime Finder
+└── 📁 src/      # Código fuente del laboratorio
 ```
 
 ---
