@@ -20,6 +20,7 @@
 ## 📂 Estructura del Repositorio
 ```
 📦 Prime Finder
+├── 📁 docs/             # Documentación y respuestas del laboratorio
 └── 📁 src/      # Código fuente del laboratorio
 ```
 
